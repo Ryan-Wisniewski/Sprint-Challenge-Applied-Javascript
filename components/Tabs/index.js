@@ -8,12 +8,44 @@
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
 
+axios.get('https://lambda-times-backend.herokuapp.com/topics')
+    .then(data => {
+        console.log(data.data)
+        const tabs = document.querySelector('.topics')
+    })
+    .catch(error => {
+        console.log('API is currently not working:', error)
+    })
+
+function createTabs(item){
+    const divTab = document.createElement('div')
+
+    divTab.classList.add('tab')
+    divTab.textContent = item
+    item.forEach(element => {
+        divTab.textContent = element
+        divTab.appendChild(item)
+    });
+    
+}
+
+console.log('function:', createTabs())
+
+
+
+
+
+
+
+
+
+
 // axios.get('https://lambda-times-backend.herokuapp.com/topics')
 //     .then(data => {
-//         console.log(data.data.topics)
+//         console.log('datahere:', data.data)
 //         const tabs = document.querySelector('.topics')
 //         console.log('beforeTabs', tabs)
-//         const tabsData = data.data.topics
+//         const tabsData = data.data
 //         // tabs = data.data.topics
 //         tabs.appendChild(createDiv(tabsData))
 
@@ -26,12 +58,9 @@
 //         divTab.classList.add('tab')
 //         // divTab.textContent = topics
 //         // const dataInsert = topics
-
-//         topics.forEach(topic => {
-//             let listItem = document.createElement('p')
-//             listItem.textContent = topic
-//             divTab.appendChild(listItem)
-//     })
+//         let listItem = document.createElement('p')
+//         listItem.textContent = topics
+//         divTab.appendChild(listItem)
 //         return createDiv
   
 // }
