@@ -16,24 +16,33 @@
 //   </div>
 // </div>
 //
-// Create a card for each of the articles and add the card to the DOM.       
+// Create a card for each of the articles and add the card to the DOM. 
+
 // array.forEach(element => {
     
 //     element.textContent = 
 //     cards.appendChild(data.data)
 // })
+
+
+
 const array = ['bootstrap', 'javascript', 'jquery', 'node', 'technology']
+const cards = document.querySelector('.cards-container')
 array.forEach(name => {
     axios.get ('https://lambda-times-backend.herokuapp.com/articles')
     .then(data => {
         // console.log('data return:', data.data.articles)      
-        const cards = document.querySelector('.cards-container')
-        const eachCard = name
+        
+        let eachCard =  name
         cards.textContent = data.data.articles
+        // eachCard.forEach(name => {
+        //     data.data.articles.headline = name 
+        // })
         console.log('eachCard:', cards)
         console.log('eachCard2:', eachCard)
+        console.log('data return:', data.data.articles) 
         cards.appendChild(createHandle(eachCard))
-
+         
 
         // cards.textContent = data.data.articles
         // console.log('eachCard:', cards)
@@ -49,11 +58,11 @@ array.forEach(name => {
 function createHandle(idTag){
     console.log('idTag exist?:', idTag)
     const cardDiv = document.createElement('div')
-    const cardHeadline = document.createElement('div')
+    let cardHeadline = document.createElement('div')
     const cardAuthor = document.createElement('div')
     const imgContainer = document.createElement('div')
-    const img = document.createElement('img')
-    const spanName = document.createElement('span')
+    let img = document.createElement('img')
+    let spanName = document.createElement('span')
 
     img.src = `${idTag.authorPhoto}`
     cardHeadline = `${idTag.headline}`

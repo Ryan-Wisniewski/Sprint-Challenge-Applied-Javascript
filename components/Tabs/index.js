@@ -8,30 +8,33 @@
 //  The tab component should look like this:
 //    <div class="tab">topic here</div>
 
-// axios.get('https://lambda-times-backend.herokuapp.com/topics')
-//     .then(data => {
-//         console.log(data.data)
-//         const tabs = document.querySelector('.topics')
-//         tabs.appendChild(createTabs(data.data.topics))
-//         // console.log('tab',tabs)
-//     })
-//     .catch(error => {
-//         // console.log('API is currently not working:', error)
-//     })
+axios.get('https://lambda-times-backend.herokuapp.com/topics')
+    .then(data => {
+        // console.log(data.data.topics)
+        const tabs = document.querySelector('.topics')
+        tabs.appendChild(createTabs(data.data.topics))
+        // console.log('tab',tabs)
+    })
+    .catch(error => {
+        console.log('API is currently not working:', error)
+    })
 
-// function createTabs(item){
-//     console.log('checkhere',item)
-//     const divTab = document.createElement('div')
+function createTabs(item){
+    // console.log('checkhere',item)
+    const divTab = document.createElement('div')
+    // item.forEach(header => {
+        divTab.textContent = item
+        divTab.classList.add('tab')
+        // console.log('here', header)
+    // })
+    
 
-//     divTab.classList.add('tab')
 
-//     divTab.textContent = item
- 
-//     console.log('here', item)
-//     console.log('divtab',divTab)
+    // console.log('here2', item)
+    // console.log('divtab',divTab)
 
-//     return divTab
-// }
+    return divTab
+}
 
 // console.log('function:', createTabs())
 
