@@ -26,21 +26,28 @@ const array = ['bootstrap', 'javascript', 'jquery', 'node', 'technology']
 array.forEach(name => {
     axios.get ('https://lambda-times-backend.herokuapp.com/articles')
     .then(data => {
-        console.log('data return:', data.data.articles.bootstrap)      
+        // console.log('data return:', data.data.articles)      
         const cards = document.querySelector('.cards-container')
-        cards.textContent = data.data.articles.bootstrap[0]
+        const eachCard = name
+        cards.textContent = data.data.articles
         console.log('eachCard:', cards)
-        cards.appendChild.createHandle(cards)
-        console.log('addedCards:',cards)
+        console.log('eachCard2:', eachCard)
+        cards.appendChild(createHandle(eachCard))
+
+
+        // cards.textContent = data.data.articles
+        // console.log('eachCard:', cards)
+        // cards.appendChild.createHandle(cards)
+        // console.log('addedCards:',cards)
     })
     .catch (error => {
-        console.log('Server Api down', error)
+        // console.log('Server Api down', error)
     })
 })
 
 
 function createHandle(idTag){
-    // console.log('idTag exist?:', idTag)
+    console.log('idTag exist?:', idTag)
     const cardDiv = document.createElement('div')
     const cardHeadline = document.createElement('div')
     const cardAuthor = document.createElement('div')
@@ -48,9 +55,9 @@ function createHandle(idTag){
     const img = document.createElement('img')
     const spanName = document.createElement('span')
 
-    img.src = idTag.authorPhoto
-    cardHeadline = idTag.headline
-    spanName.textContent = idTag.authorName
+    img.src = `${idTag.authorPhoto}`
+    cardHeadline = `${idTag.headline}`
+    spanName.textContent = `${idTag.authorName}`
 
     cardDiv.appendChild(cardHeadline)
     cardDiv.appendChild(cardAuthor)
@@ -63,7 +70,7 @@ function createHandle(idTag){
     cardAuthor.classList.add('author')
     imgContainer.classList.add('img-container')
 
-    console.log('return', idTag)
+    // console.log('return', idTag)
     return cardDiv
     
 }
