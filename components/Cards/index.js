@@ -22,50 +22,50 @@
 //     element.textContent = 
 //     cards.appendChild(data.data)
 // })
-// const array = ['bootstrap', 'javascript', 'jquery', 'node', 'technology']
-// array.forEach(name => {
-//     axios.get ('https://lambda-times-backend.herokuapp.com/articles')
-//     .then(data => {
-//         console.log('data return:', data.data.articles.bootstrap)      
-//         const cards = document.querySelector('.cards-container')
-//         cards.textContent = data.data.articles.bootstrap[0]
-//         console.log('eachCard:', cards)
-//         cards.appendChild.createHandle(cards)
-//         console.log('addedCards:',cards)
-//     })
-//     .catch (error => {
-//         // console.log('Server Api down', error)
-//     })
-// })
+const array = ['bootstrap', 'javascript', 'jquery', 'node', 'technology']
+array.forEach(name => {
+    axios.get ('https://lambda-times-backend.herokuapp.com/articles')
+    .then(data => {
+        console.log('data return:', data.data.articles.bootstrap)      
+        const cards = document.querySelector('.cards-container')
+        cards.textContent = data.data.articles.bootstrap[0]
+        console.log('eachCard:', cards)
+        cards.appendChild.createHandle(cards)
+        console.log('addedCards:',cards)
+    })
+    .catch (error => {
+        console.log('Server Api down', error)
+    })
+})
 
 
-// function createHandle(idTag){
-//     // console.log('idTag exist?:', idTag)
-//     const cardDiv = document.createElement('div')
-//     const cardHeadline = document.createElement('div')
-//     const cardAuthor = document.createElement('div')
-//     const imgContainer = document.createElement('div')
-//     const img = document.createElement('img')
-//     const spanName = document.createElement('span')
+function createHandle(idTag){
+    // console.log('idTag exist?:', idTag)
+    const cardDiv = document.createElement('div')
+    const cardHeadline = document.createElement('div')
+    const cardAuthor = document.createElement('div')
+    const imgContainer = document.createElement('div')
+    const img = document.createElement('img')
+    const spanName = document.createElement('span')
 
-//     img.src = idTag.authorPhoto
-//     cardHeadline = idTag.headline
-//     spanName.textContent = idTag.authorName
+    img.src = idTag.authorPhoto
+    cardHeadline = idTag.headline
+    spanName.textContent = idTag.authorName
 
-//     cardDiv.appendChild(cardHeadline)
-//     cardDiv.appendChild(cardAuthor)
-//     cardAuthor.appendChild(imgContainer)
-//     imgContainer.appendChild(img)
-//     cardAuthor.appendChild(spanName)
+    cardDiv.appendChild(cardHeadline)
+    cardDiv.appendChild(cardAuthor)
+    cardAuthor.appendChild(imgContainer)
+    imgContainer.appendChild(img)
+    cardAuthor.appendChild(spanName)
 
-//     cardDiv.classList.add('card')
-//     cardHeadline.classList.add('headline')
-//     cardAuthor.classList.add('author')
-//     imgContainer.classList.add('img-container')
+    cardDiv.classList.add('card')
+    cardHeadline.classList.add('headline')
+    cardAuthor.classList.add('author')
+    imgContainer.classList.add('img-container')
 
-//     console.log('return', idTag)
-//     return cardDiv
+    console.log('return', idTag)
+    return cardDiv
     
-// }
+}
 
 // console.log('pls no break',createHandle())

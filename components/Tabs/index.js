@@ -13,10 +13,10 @@ axios.get('https://lambda-times-backend.herokuapp.com/topics')
         console.log(data.data)
         const tabs = document.querySelector('.topics')
         tabs.appendChild(createTabs(data.data.topics))
-        console.log('tab',tabs)
+        // console.log('tab',tabs)
     })
     .catch(error => {
-        console.log('API is currently not working:', error)
+        // console.log('API is currently not working:', error)
     })
 
 function createTabs(item){
@@ -34,6 +34,7 @@ function createTabs(item){
 }
 
 // console.log('function:', createTabs())
+
 
 
 
