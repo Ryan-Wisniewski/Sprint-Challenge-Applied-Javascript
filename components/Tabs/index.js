@@ -9,39 +9,54 @@
 //    <div class="tab">topic here</div>
 const tabs = document.querySelector('.topics')
 axios.get('https://lambda-times-backend.herokuapp.com/topics')
-    .then(data => {
-        
-        // console.log(data.data.topics)
-        tabs.appendChild(createTabs(data.data.topics))
-        // forEach(header => {
-        // tabs.textContent = header
-        
-        // })
-        
-        console.log('tab',tabs)
+.then(data => {
+    // console.log(data.constructor.name, data)
+    const array = data.data.topics
+    array.forEach(datas => {
+        const tab = document.createElement('div')
+        tab.classList.add('tab')
+        tab.textContent = datas
+        tabs.appendChild(tab)
+        // console.log(tab, 'thistab')
+        // console.log(tabs, 'tabs')
     })
-    .catch(error => {
-        console.log('API is currently not working:', error)
-    })
+})
+.catch(error => {
+    // console.log('api broken', error)
+})
 
-function createTabs(item){
-    // console.log('checkhere',item)
-    const divTab = document.createElement('div')
-    // item.forEach(header => {
-        divTab.textContent = item
-        divTab.classList.add('tab')
-        // console.log('here', header)
-    // })
+
+
+// const tabs = document.querySelector('.topics')
+// axios.get('https://lambda-times-backend.herokuapp.com/topics')
+//     .then(data => {
+//         // console.log(data.data.topics)
+//         const textAppend = data.data.topics
+//         tabs.appendChild(createTabs(textAppend))
+//         // forEach(header => {
+//         // tabs.textContent = header        
+//         // })        
+//         console.log('tab',tabs)
+//     })
+//     .catch(error => {
+//         console.log('API is currently not working:', error)
+//     })
+
+
+// function createTabs(item){
+//     // console.log('checkhere',item)
+//     const divTab = document.createElement('div')
+//         divTab.textContent = item.Title
+//         divTab.classList.add('tab')
+//         tabs.appendChild(divTab)
+//         // console.log('here', header)
+
     
 
+//     return divTab
+// }
 
-    // console.log('here2', item)
-    // console.log('divtab',divTab)
-
-    return divTab
-}
-
-// console.log('function:', createTabs())
+// // console.log('function:', createTabs())
 
 
 

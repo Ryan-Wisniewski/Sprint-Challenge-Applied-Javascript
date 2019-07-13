@@ -12,7 +12,7 @@
 function Header() {
     const divHeader = document.createElement('div')
     const spanDate = document.createElement('span')
-    const header = document.createElement('span')
+    const header = document.createElement('h1')
     const spanTemp = document.createElement('span')
 
     divHeader.classList.add('header')
